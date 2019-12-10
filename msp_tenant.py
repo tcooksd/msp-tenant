@@ -138,7 +138,7 @@ def create_tenant(tenant_name, api_location="accounts"):
                 group_id = i['id']
 
 
-        create_user("tcooktest1", "tcook@gmail.com", "Tim", "Cook", "oopha7Ku!",
+        create_user("tcooktest1", "tcook@gmail.com", "Tim", "Cook", "00pha7Bu!",
             "accounts/%s/users" % tenantinfo(tenant_name)['id'])
 
         create_cloud("name", "demo_cloud", "description", "location",

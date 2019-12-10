@@ -5,6 +5,8 @@ import json
 token = "5a671567-31c5-442d-8d93-633de4074707"
 url1 = "https://10.0.0.8/api/"
 
+#NOTE:
+# Current requests are handled through vars assigned globably. 
 class Morpheus:
     headers={
         'Authorization': 'Bearer %s ' % token,

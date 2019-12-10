@@ -6,7 +6,7 @@ token = "5a671567-31c5-442d-8d93-633de4074707"
 url1 = "https://10.0.0.8/api/"
 
 #NOTE:
-# Current requests are handled through vars assigned globably. 
+# Current requests are handled through vars assigned globably.
 class Morpheus:
     headers={
         'Authorization': 'Bearer %s ' % token,
@@ -38,10 +38,14 @@ class Morpheus:
             )
         json_payload = ('{content}'.format(
                 content=response.content))
+
+        print('Response HTTP Status Code: {status_code}'.format(
+            status_code=response.status_code))
+        print('Response HTTP Response Body: {content}'.format(
+            content=response.content))
+        print "#############################"
+        print "#############################"
         return json.loads(json_payload)
-
-
-
 
 #loop through tenants and return a list of tenant names.
 def check_tenant():
@@ -102,6 +106,19 @@ def create_cloud(username, code, description, location,
             "description": "%s",
             "location": "%s",
             "groupId": "%s",
+            "zoneType": {
+                "code": "azure"
+            },
+            "config": {
+                "certificateProvider": "internal",
+                "subscriberId": "23458896-d4c5-467f-b029-fa3072281a00",
+                "tenantId": "39762187-3f05-43a3-a9b4-2b1c4b5156d5",
+                "clientId": "56723462-0d29-43ee-5321-38fea714945f",
+                "clientSecret": "yoursecret",
+                "resourceGroup": null,
+                "importExisting": "off"
+            },
+            "regionCode": "westus",
             "accountId": "%s"
             }
         } """ % ( username, code, description, location, groupid, account_id )

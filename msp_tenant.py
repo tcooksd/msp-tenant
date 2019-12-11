@@ -3,6 +3,7 @@
 import requests
 import json
 token = "5a671567-31c5-442d-8d93-633de4074707"
+url = "https://10.0.0.8/"
 url1 = "https://10.0.0.8/api/"
 
 #NOTE:
@@ -46,6 +47,16 @@ class Morpheus:
         print "#############################"
         print "#############################"
         return json.loads(json_payload)
+
+def get_tenant_token():
+    response=requests.get(
+        url= url1 + self.api_location,
+        headers = self.headers,
+        verify = False
+        )
+    json_payload = ('{content}'.format(
+        content=response.content))
+    return json.loads(json_payload)
 
 #loop through tenants and return a list of tenant names.
 def check_tenant():
